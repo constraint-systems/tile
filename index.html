@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tile</title>
+    <link rel="stylesheet" href="font.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" type="module"></script>
+  </head>
+  <body>
+    <input
+      type="file"
+      id="file_input"
+      style="display: none;"
+      accept="image/*"
+    />
+    <div id="main">
+      <div id="bar-holder">
+        <div id="mode-bar"></div>
+        <div id="action-bar"></div>
+      </div>
+      <canvas id="render"></canvas>
+      <ul
+        id="tree"
+        style="position: fixed; left: 32px; top: 32px; display: block;"
+      ></ul>
+      <div id="bottom-bar">
+        <div id="readout">Loading...</div>
+        <div id="mode"></div>
+      </div>
+    </div>
+    <div id="sidebar">
+      <div>Tile</div>
+      <div class="hspacer"></div>
+      <div>
+        Layout images using a tiling tree layout. Move, split, and resize images
+        using keyboard controls.
+      </div>
+      <div class="spacer"></div>
+      <div id="help-content"></div>
+    </div>
+    <div
+      id="sidebar-button"
+      class="button"
+      onclick="trigger('?')"
+      role="button"
+    >
+      ?
+    </div>
+  </body>
+</html>
