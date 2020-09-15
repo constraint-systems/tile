@@ -291,7 +291,7 @@ export default function(add_history = true) {
   }
   let fill_type = 'fill:' + read_fill_type
   state.$readout.innerHTML =
-    't' + state.active + (active.children === undefined ? '' : '-container')
+    't-' + state.active + (active.children === undefined ? '' : ' container')
   state.$mode.innerText = fill_type
 
   // composite

@@ -20,6 +20,9 @@ canvas {
   display: block;
   position: relative;
 }
+a {
+  color: inherit;
+}
 
 .button {
   outline: solid 1px #222;
@@ -48,6 +51,9 @@ canvas {
   text-decoration: none;
 }
 
+#tree {
+  background: #fff;
+}
 #tree,
 #tree ul {
   list-style: none;

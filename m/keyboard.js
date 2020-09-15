@@ -105,6 +105,7 @@ export function keyAction(key, e) {
     if (key === 'p') {
       if (e.shiftKey) {
         setPrintPreview(!state.print_preview)
+        console.log(JSON.stringify(state.tiles))
         render()
       } else {
         saveImage()

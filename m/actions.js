@@ -371,7 +371,7 @@ export function resize(diff, shift = false) {
 }
 
 let img_id = 0
-function _loadImage(tile, src) {
+export function _loadImage(tile, src) {
   let px = state.px
   let img = document.createElement('img')
   img.onload = function() {
@@ -406,16 +406,36 @@ export function clearImage() {
   }
 }
 
+function loadAllImages(target_tile, srcs) {
+  let tiles = []
+  if (target_tile.children !== undefined) {
+    tiles = getAllLeaves(target_tile)
+  } else {
+    tiles = [target_tile]
+  }
+  for (let i = 0; i < tiles.length; i++) {
+    let tile = tiles[i]
+    if (srcs.length === 1) {
+      let src = srcs[0]
+      if (tile !== undefined && src !== undefined) {
+        _loadImage(tile, src)
+      }
+    } else {
+      let src = srcs[i]
+      if (tile !== undefined && src !== undefined) {
+        _loadImage(tile, src)
+      }
+    }
+  }
+}
+
 export function loadImage() {
   let active = getActive()
   let input = document.querySelector('#file_input')
-  let tiles = []
   if (active.children !== undefined) {
     input.setAttribute('multiple', 'multiple')
-    tiles = getAllLeaves(active)
   } else {
     input.removeAttribute('multiple')
-    tiles = [active]
   }
   function handleChange(e) {
     let images = []
@@ -426,20 +446,7 @@ export function loadImage() {
       let src = URL.createObjectURL(item)
       images.push(src)
     }
-    for (let i = 0; i < tiles.length; i++) {
-      let tile = tiles[i]
-      if (images.length === 1) {
-        let src = images[0]
-        if (tile !== undefined && src !== undefined) {
-          _loadImage(tile, src)
-        }
-      } else {
-        let src = images[i]
-        if (tile !== undefined && src !== undefined) {
-          _loadImage(tile, src)
-        }
-      }
-    }
+    loadAllImages(active, images)
     this.removeEventListener('change', handleChange)
   }
   input.addEventListener('change', handleChange)
@@ -885,7 +892,7 @@ export function onPaste(e) {
     let file = item.getAsFile()
     let src = URL.createObjectURL(file)
     let active = getActive()
-    _loadImage(active, src)
+    loadAllImages(active, [src])
   }
 }
 

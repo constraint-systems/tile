@@ -73,7 +73,7 @@ export function renderHelp() {
       state.control_dirs === 'arrows' ? 'active' : ''
     }" role="button" onclick="setControlDirs('arrows')">arrows</span> <span class="link ${
       state.control_dirs === 'vim' ? 'active' : ''
-    }" role="button" onclick="setControlDirs('vim')">vim</span>`
+    }" role="button" onclick="setControlDirs('vim')">Vim</span>`
   )
 
   if (state.mode === 'move') {
@@ -145,7 +145,20 @@ export function renderHelp() {
       html += d(b('p') + l('download image'))
       html += hspace
       html += d(b('shift + p', 'p', undefined, true) + l('preview image'))
+      html += space
       html += hspace
+      html += d(
+        '<a href="https://github.com/constraint-systems/tile" target="_blank">View source</a>'
+      )
+      html += qspace
+      html += d(
+        '<a href="https://constraint.systems" target="_blank">Constraint Systems</a>'
+      )
+      html += space
+      html += hspace
+      html += d(
+        `Default images by <a href="https://unsplash.com/photos/qx-fv-jB0iM" target="_blank">Maddy Baker</a>, <a href="https://unsplash.com/photos/9kbsq91NFwg" target="_blank">Ganapathy Kumar</a>, and <a href="https://unsplash.com/photos/58pDwteN9b8" target="_blank">Marco Mons</a>`
+      )
     }
   } else if (state.mode === 'resize') {
     html += hspace

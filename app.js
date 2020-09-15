@@ -7,6 +7,8 @@ import {
   onDrop,
   onPaste,
   mouseSelect,
+  getByID,
+  _loadImage,
 } from '/m/actions.js'
 import { renderHelp, setControlDirs } from '/m/help.js'
 
@@ -33,6 +35,17 @@ window.addEventListener('load', () => {
   state.root_size = [adjust_w, adjust_h]
   rx.canvas.style.marginTop = 14 + 'px'
   rx.canvas.style.marginLeft = 14 + 'px'
+
+  // layout is preset in state, loading images depends on it
+  _loadImage(getByID(1), '/images/forest.jpg')
+  _loadImage(getByID(3), '/images/moon.jpg')
+  _loadImage(getByID(4), '/images/sea.jpg')
+  _loadImage(getByID(5), '/images/forest.jpg')
+  _loadImage(getByID(7), '/images/forest.jpg')
+  _loadImage(getByID(15), '/images/forest.jpg')
+  _loadImage(getByID(19), '/images/moon.jpg')
+  _loadImage(getByID(21), '/images/moon.jpg')
+  _loadImage(getByID(23), '/images/moon.jpg')
 
   // dom
   state.$tree = document.querySelector('#tree')
