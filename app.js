@@ -31,6 +31,10 @@ window.addEventListener('load', () => {
 
   let adjust_w = w - 352 - 16 * 2 + 4
   let adjust_h = h - 16 * 2 - 20 + 4
+  if (window.innerWidth < 800) {
+    adjust_w += 352
+    adjust_h -= 260
+  }
 
   state.root_size = [adjust_w, adjust_h]
   rx.canvas.style.marginTop = 14 + 'px'

@@ -99,6 +99,7 @@ export function renderHelp() {
       )
       html += hspace
       html += d(b(getDirSymbol(cancel_key), cancel_key) + l('cancel move'))
+      html += space
     } else {
       html += hspace
       html += qspace
@@ -159,6 +160,7 @@ export function renderHelp() {
       html += d(
         `Default images by <a href="https://unsplash.com/photos/qx-fv-jB0iM" target="_blank">Maddy Baker</a>, <a href="https://unsplash.com/photos/9kbsq91NFwg" target="_blank">Ganapathy Kumar</a>, and <a href="https://unsplash.com/photos/58pDwteN9b8" target="_blank">Marco Mons</a>`
       )
+      html += space
     }
   } else if (state.mode === 'resize') {
     html += hspace
@@ -192,7 +194,7 @@ export function renderHelp() {
     html += d(b('p') + l('download image'))
     html += hspace
     html += d(b('shift + p', 'p', undefined, true) + l('preview image'))
-    html += hspace
+    html += space
   }
   $help.innerHTML = html
 }
