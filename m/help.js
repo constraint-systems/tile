@@ -149,7 +149,11 @@ export function renderHelp() {
       html += space
       html += hspace
       html += d(
-        '<a href="https://github.com/constraint-systems/tile" target="_blank">View source</a>'
+        '<a href="https://writing.grantcuster.com/posts/2020-09-16-tile-release-notes/" target="_blank">Release notes</a>'
+      )
+      html += qspace
+      html += d(
+        '<a href="https://www.youtube.com/watch?v=okhz-M7n71c" target="_blank">Video walkthrough</a>'
       )
       html += qspace
       html += d(
