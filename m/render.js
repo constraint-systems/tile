@@ -166,8 +166,13 @@ export default function(add_history = true) {
   let width = rx.canvas.width + 14
   if (state.show_sidebar) {
     state.$sidebar.style.display = 'block'
-    state.$main.style.width = width + 362 + 'px'
-    state.$main.style.paddingRight = 362 + 'px'
+    if (window.innerWidth > 799) {
+      state.$main.style.width = width + 362 + 'px'
+      state.$main.style.paddingRight = 362 + 'px'
+    } else {
+      state.$main.style.width = width + 'px'
+      state.$main.style.paddingRight = 0 + 'px'
+    }
     state.$sidebar_button.style.display = 'none'
   } else {
     state.$sidebar.style.display = 'none'

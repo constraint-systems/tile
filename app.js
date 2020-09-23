@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
   state.root_size = [adjust_w, adjust_h]
   rx.canvas.style.marginTop = 14 + 'px'
   rx.canvas.style.marginLeft = 14 + 'px'
+  setCanvasSizes(adjust_w, adjust_h)
 
   // layout is preset in state, loading images depends on it
   _loadImage(getByID(1), '/images/forest.jpg')

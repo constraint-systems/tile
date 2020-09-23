@@ -748,7 +748,7 @@ export function setCanvasSizes(w, h) {
   cx.canvas.height = rx.canvas.height
   cx.translate(2, 2)
 
-  setContainerSize()
+  // container size taken care of in render now
 }
 
 export function resizeCanvas(resize, shift) {
@@ -770,13 +770,6 @@ export function resizeCanvas(resize, shift) {
     }
   }
   state.root_size = [new_width, new_height]
-}
-
-export function setContainerSize() {
-  let rx = state.rx
-  let width = rx.canvas.width + parseInt(rx.canvas.style.marginLeft)
-  if (state.show_sidebar) width += 362
-  document.querySelector('#main').style.width = width + 'px'
 }
 
 export function saveImage() {
